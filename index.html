@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="messages">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Assessment</title>
+    <script src="angular.min.js"></script>
+    <script src="client.js"></script>
+  </head>
+  <body ng-controller="MainController as main">
+    <input type="text" ng-model="main.input">
+    <button ng-click="main.addMessage(main.input)">Add a message</button>
+
+    <p ng-show="main.shouldShowCurrent()">
+      Message is: {{main.currentMessage}}
+    </p>
+
+    <h3 ng-show="main.shouldShowPrevious()">Previous Messages:</h3>
+    <ol>
+      <li ng-repeat="message in main.previousMessages">{{message}}</li>
+    </ol>
+  </body>
+</html>
